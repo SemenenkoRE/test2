@@ -1,8 +1,4 @@
-# class DynamicAttributes:
-#     def __init__(self, **kwargs):
-#         for key, value in kwargs.items():
-#             setattr(self, key, value)
-#
+
 class SimpleClass:
 
     def __init__(self, **kwargs):
@@ -12,13 +8,8 @@ class SimpleClass:
 
     def __setattr__(self, key, value):
 
-        if not key in self.__dict__.keys():
-            print(f'Создается атрибут: {key}, со значением {key}')
+        print('changes')
 
-        else:
-            print(f'Присваивается атрибут: {key}, значение: {key}')
-
-        # self.__dict__[key] = value
         super().__setattr__(key, value)
 
 simple_obj = SimpleClass(**{'attr_1': 1, 'attr_2': 2})
